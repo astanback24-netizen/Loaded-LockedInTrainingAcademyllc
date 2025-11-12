@@ -1,0 +1,94 @@
+/*
+ * ==========================================
+ * LOADED & LOCKED IN TRAINING ACADEMY
+ *
+ * File: /styles/main.css
+ * Description: Defines custom styles, colors,
+ * and fonts for the website.
+ * ==========================================
+ */
+
+/* 1. FONT IMPORT (from your HTML) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+
+/*
+ * 2. CUSTOM COLOR & FONT DEFINITIONS
+ * We define your brand colors and fonts as CSS variables
+ * so Tailwind can use them.
+ */
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --color-primary-red: #dc2626; /* The red from your quiz */
+  --color-dark-bg: #000000;     /* The black from your quiz/body */
+  --color-card-bg: #0a0a0a;     /* The dark gray from your quiz */
+}
+
+/*
+ * 3. APPLYING CUSTOM TAILWIND CLASSES
+ * This tells the Tailwind CDN (which you already link to)
+ * what to do with your custom classes.
+ */
+@layer base {
+  body {
+    /* Apply the dark background and sans-serif font to the whole site */
+    font-family: var(--font-sans);
+    background-color: var(--color-dark-bg);
+  }
+}
+
+@layer utilities {
+  /* Background Colors */
+  .bg-primary-red {
+    background-color: var(--color-primary-red);
+  }
+  .bg-dark-bg {
+    background-color: var(--color-dark-bg);
+  }
+  .bg-card-bg {
+    background-color: var(--color-card-bg);
+  }
+
+  /* Text Colors */
+  .text-primary-red {
+    color: var(--color-primary-red);
+  }
+
+  /* Border Colors */
+  .border-primary-red {
+    border-color: var(--color-primary-red);
+  }
+
+  /* Hover & Focus States */
+  .hover\:text-primary-red:hover {
+    color: var(--color-primary-red);
+  }
+  .hover\:border-primary-red:hover {
+    border-color: var(--color-primary-red);
+  }
+  .hover\:shadow-primary-red\/50:hover {
+    box-shadow: 0 10px 15px -3px var(--color-primary-red, #dc262680), 0 4px 6px -4px var(--color-primary-red, #dc262680);
+  }
+  .focus\:ring-primary-red:focus {
+    --tw-ring-color: var(--color-primary-red);
+  }
+  .focus\:border-primary-red:focus {
+    border-color: var(--color-primary-red);
+  }
+
+  /*
+   * 4. CUSTOM COMPONENTS (from your <style> tag)
+   */
+
+  /* Style for the hero background image */
+  .hero-bg {
+    /* REMINDER: You must upload 'firearms-training-hero.jpg' to an 'images' folder */
+    background: url('/images/firearms-training-hero.jpg') center/cover no-repeat;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.55);
+  }
+
+  /* Custom scroll-margin for smooth navigation */
+  section {
+    scroll-margin-top: 4rem; /* Compensate for the fixed header height */
+  }
+}
